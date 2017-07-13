@@ -14,25 +14,34 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "server",
+    "public": false
+  },
+  "Developer": {
+    "dataSource": "server",
+    "public": true
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "server",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "server",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "server",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "server",
     "public": false
+  },
+  "Project": {
+    "dataSource": "server",
+    "public": true
   }
 }

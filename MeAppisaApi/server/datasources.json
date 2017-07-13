@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "server": {
+    "host": "meappisa.mysql.dbaas.com.br",
+    "port": 3306,
+    "database": "meappisa",
+    "username": "meappisa",
+    "password": "SenhADW@rC0S",
+    "name": "server",
+    "connector": "mysql",
+    "timezone": "UTC+07:00"
   }
 }

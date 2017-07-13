@@ -1,0 +1,23 @@
+{
+  "name": "Developer",
+  "plural": "Developers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "Project": {
+      "type": "hasMany",
+      "model": "Project",
+      "foreignKey": "id",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
