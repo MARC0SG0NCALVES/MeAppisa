@@ -9,6 +9,8 @@ import { Item } from '../models/item';
 @Injectable()
 export class Items {
 
+  items: Item[] = [];
+
   constructor(public http: Http, public api: Api) {
   }
 

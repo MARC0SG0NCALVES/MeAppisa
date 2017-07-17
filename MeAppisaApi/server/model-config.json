@@ -17,10 +17,6 @@
     "dataSource": "server",
     "public": false
   },
-  "Developer": {
-    "dataSource": "server",
-    "public": true
-  },
   "AccessToken": {
     "dataSource": "server",
     "public": false
@@ -40,7 +36,11 @@
     "dataSource": "server",
     "public": false
   },
-  "Project": {
+  "Developer": {
+    "dataSource": "server",
+    "public": true
+  },
+  "Package": {
     "dataSource": "server",
     "public": true
   }

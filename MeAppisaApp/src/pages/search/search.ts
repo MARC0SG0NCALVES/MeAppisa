@@ -1,11 +1,13 @@
+import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { ItemDetailPage } from '../item-detail/item-detail';
+import { PackageDetailPage } from '../package-detail/package-detail';
 
 import { Item } from '../../models/item';
 
-import { Items } from '../../providers/providers';
+import { Package } from '../../models/package';
+import { Packages } from "../../providers/packages";
 
 
 @Component({
@@ -13,32 +15,36 @@ import { Items } from '../../providers/providers';
   templateUrl: 'search.html'
 })
 export class SearchPage {
-  
-  currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  public search: Array<Package> = new Array<Package>();
+  public packages: Array<Package> = new Array<Package>();
 
-  /**
-   * Perform a service for the proper items.
-   */
-  getItems(ev) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public pack: Packages, http: Http) {
+    this.pack.getAll().subscribe((data) => this.packages = data);
+  }
+
+  public getItems(ev) {
     let val = ev.target.value;
     if (!val || !val.trim()) {
-      this.currentItems = [];
+      this.search = new Array<Package>();
       return;
     }
-    this.currentItems = this.items.query({
-      name: val
+    this.pack.searchNpm(val).subscribe((data) => {
+      data.forEach((element) => {
+        this.packages.forEach((pack) => {
+          if (element.name === pack.name) {
+            element['color'] = 'blue';
+          }
+        });
+        this.search.push(element);
+      })
     });
   }
 
-  /**
-   * Navigate to the detail page for this item.
-   */
-  openItem(item: Item) {
-    this.navCtrl.push(ItemDetailPage, {
-      item: item
-    });
+  public openItem(pack: Package) {
+    this.navCtrl.push(PackageDetailPage, { pack: pack });
   }
+
 
 }

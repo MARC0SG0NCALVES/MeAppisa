@@ -1,0 +1,15 @@
+{
+    "create": {
+        "username": "marcoosbmx",
+        "password": "admin1",
+        "email": "marcosbmx.jr@gmail.com"
+    },
+    "login": {
+        "password": "admin1",
+        "email": "marcosbmx.jr@gmail.com"
+    },
+    "package": {
+        "name": "@Angular/cli",
+        "version": "1.2.1"
+    }
+}

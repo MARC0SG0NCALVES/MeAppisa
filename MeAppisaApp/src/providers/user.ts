@@ -1,89 +1,46 @@
+import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Response, Http } from '@angular/http';
 import { Api } from './api';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-/**
- * Most apps have the concept of a User. This is a simple provider
- * with stubs for login/signup/etc.
- *
- * This User provider makes calls to our API at the `login` and `signup` endpoints.
- *
- * By default, it expects `login` and `signup` to return a JSON object of the shape:
- *
- * ```json
- * {
- *   status: 'success',
- *   user: {
- *     // User fields your app needs, like "id", "name", "email", etc.
- *   }
- * }
- * ```
- *
- * If the `status` field is not `success`, then an error is detected and returned.
- */
 @Injectable()
 export class User {
-  _user: any;
 
-  constructor(public http: Http, public api: Api) {
+  constructor(public http: Http, public api: Api) { }
+
+  public login(account: { email: string, password: string }): Observable<Response> {
+    const callback = this.api.post('Developers/login', account).share();
+    callback.map(res => res.json())
+      .subscribe(
+      res => this.loggedIn(res),
+      err => console.error('ERROR', err));
+    return callback;
   }
 
-  /**
-   * Send a POST request to our login endpoint with the data
-   * the user entered on the form.
-   */
-  login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
-
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          this._loggedIn(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
-
-    return seq;
+  public signup(account: { email: string, password: string }): Observable<Response> {
+    const callback = this.api.post('Developers', account).share();
+    callback.map(res => res.json())
+      .subscribe(
+      res => this.loggedIn(res),
+      err => console.error('ERROR', err));
+    return callback;
   }
 
-  /**
-   * Send a POST request to our signup endpoint with the data
-   * the user entered on the form.
-   */
-  signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+  public id() {
+    return localStorage.getItem('_id');
+  };
+  public token() {
+    return localStorage.getItem('_access_token');
+  };
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          this._loggedIn(res);
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
-
-    return seq;
+  public logout() {
+    localStorage.clear();
   }
 
-  /**
-   * Log the user out, which forgets the session
-   */
-  logout() {
-    this._user = null;
-  }
-
-  /**
-   * Process a login/signup response to store user data
-   */
-  _loggedIn(resp) {
-    this._user = resp.user;
+  public loggedIn(resp) {
+    localStorage.setItem('_id', resp.userId);
+    localStorage.setItem('_access_token', resp.id);
   }
 }

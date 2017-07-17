@@ -9,15 +9,36 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "Project": {
+    "package": {
       "type": "hasMany",
-      "model": "Project",
-      "foreignKey": "id",
+      "model": "Package",
       "options": {
-        "disableInclude": true
+        "validate": true,
+        "forceId": true
       }
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "model": "*"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW",
+      "property": "create",
+      "model": "Developer"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "model": "Developer"
+    }
+  ],
   "methods": {}
 }

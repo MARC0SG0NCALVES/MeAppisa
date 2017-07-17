@@ -1,0 +1,36 @@
+{
+  "name": "Package",
+  "plural": "Packages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "length": 50
+    },
+    "version": {
+      "type": "string",
+      "length": 10
+    }
+  },
+  "validations": [],
+  "relations": {
+    "developers": {
+      "type": "belongsTo",
+      "model": "Developer",
+      "foreignKey": "developerId"
+    }
+  },
+  "acls": [
+    {
+      "model": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

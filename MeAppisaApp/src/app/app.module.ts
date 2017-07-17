@@ -9,8 +9,8 @@ import { MyApp } from './app.component';
 import { CardsPage } from '../pages/cards/cards';
 import { ContentPage } from '../pages/content/content';
 import { ItemCreatePage } from '../pages/item-create/item-create';
-import { ItemDetailPage } from '../pages/item-detail/item-detail';
-import { ListMasterPage } from '../pages/list-master/list-master';
+import { PackageDetailPage } from '../pages/package-detail/package-detail';
+import { PackagesUpdatedPage } from '../pages/packages-updated/packages-updated';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { MenuPage } from '../pages/menu/menu';
@@ -25,6 +25,7 @@ import { Api } from '../providers/api';
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/settings';
 import { User } from '../providers/user';
+import { Packages } from '../providers/packages';
 
 import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -61,8 +62,8 @@ export function provideSettings(storage: Storage) {
     CardsPage,
     ContentPage,
     ItemCreatePage,
-    ItemDetailPage,
-    ListMasterPage,
+    PackageDetailPage,
+    PackagesUpdatedPage,
     LoginPage,
     MapPage,
     MenuPage,
@@ -92,8 +93,8 @@ export function provideSettings(storage: Storage) {
     CardsPage,
     ContentPage,
     ItemCreatePage,
-    ItemDetailPage,
-    ListMasterPage,
+    PackageDetailPage,
+    PackagesUpdatedPage,
     LoginPage,
     MapPage,
     MenuPage,
@@ -112,6 +113,7 @@ export function provideSettings(storage: Storage) {
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    Packages,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

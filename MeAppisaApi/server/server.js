@@ -17,12 +17,15 @@ app.start = function () {
     }
 
 
-    var appModels = ['Developer', 'AccessToken', 'ACL', 'RoleMapping', 'Role', 'Project'];
+    var appModels = ['Developer', 'Package', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
 
     var ds = app.dataSources.server;
     ds.isActual(appModels, function (err, actual) {
       if (!actual) {
-        ds.autoupdate(appModels, function (err) {
+        // ds.autoupdate(appModels, function (err) {
+        //   if (err) throw (err);
+        // });
+        ds.automigrate(appModels, function (err) {
           if (err) throw (err);
         });
       }
