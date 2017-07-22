@@ -4,11 +4,11 @@ module.exports.enableMethods = (Package) => {
         exec('npm search --json=true --parseable=true --searchstaleness=10 ' + filter,
             (error, sucess, failed) => {
                 if (error !== null || failed) {
-                    cb(null, error + failed);
+                    console.log(error + '\n' + failed);
                 } else {
                     var object = JSON.parse(sucess);
                     var response = new Array();
-                    object.forEach(function (element) {
+                    object.forEach((element) => {
                         response.push({
                             name: element.name,
                             version: element.version,
@@ -25,7 +25,7 @@ module.exports.enableMethods = (Package) => {
         exec('npm show --json=true --parseable=true ' + filter,
             (error, sucess, failed) => {
                 if (error !== null || failed) {
-                    cb(null, error + failed);
+                    console.log(error + '\n' + failed);
                 } else {
                     var object = JSON.parse(sucess);
                     var response = {

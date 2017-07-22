@@ -12,12 +12,12 @@
   "MAP_TITLE": "Mapa",
   "TUTORIAL_SKIP_BUTTON": "Pular",
   "TUTORIAL_CONTINUE_BUTTON": "Continuar",
-  "TUTORIAL_SLIDE1_TITLE": "Bem-vindo ao Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "O <b>Ionic Super Starter</b> é um starter para Ionic completo, com diversos componentes e páginas prontas para ser utilizado como guia de melhores práticas.",
-  "TUTORIAL_SLIDE2_TITLE": "Como utilizar o Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Combine os tipos de páginas que você quer e remova aquelas que não precisa. No starter existem muitos casos de uso comuns de layouts e páginas como login, cadastro, abas e de tutorial.",
-  "TUTORIAL_SLIDE3_TITLE": "Iniciando o projeto",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Precisa de ajuda? Dê uma olhada no README do Super Starter para um tutorial completo",
+  "TUTORIAL_SLIDE1_TITLE": "Bem-vindo ao MeAppisa",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "O <b>MeAppisa</b> é um app, para notificalo sobre atualizações de seus pacotes utilizados do npm.",
+  "TUTORIAL_SLIDE2_TITLE": "Como utilizar o MeAppisa",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Selecione os seus pacotes utilizados em seus projetos na aba de pesquisa, ou execute um <b>npm i meappisa</b> para monitorar seus pacotes pelo nosso app.",
+  "TUTORIAL_SLIDE3_TITLE": "Só curte",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Depois é só esperar uma atualização <b>tomando um suco</b> que o resto ele faz ;-D",
   "TUTORIAL_SLIDE4_TITLE": "Pronto para Usar?",
   "WELCOME_INTRO": "MeAppisa",
   "SETTINGS_TITLE": "Configurações",
@@ -44,5 +44,5 @@
   "UPDATE_BUTTON": "Atualizar",
   "CARDS_TITLE": "Social",
   "SEARCH_TITLE": "Busca",
-  "SEARCH_PLACEHOLDER": "Procure um item da lista, ex: \"Donald Duck\""
+  "SEARCH_PLACEHOLDER": "Procure um pacote, ex: \"loopback\""
 }
