@@ -7,11 +7,11 @@ module.exports.disableMethods = (Package) => {
     Package.disableRemoteMethodByName('create');
     Package.disableRemoteMethodByName('upsert');
     Package.disableRemoteMethodByName('updateAll');
-    Package.disableRemoteMethodByName("prototype.updateAttributes");
+    Package.disableRemoteMethodByName('prototype.updateAttributes');
 
     Package.disableRemoteMethodByName('find');
     Package.disableRemoteMethodByName('findById');
-    Package.disableRemoteMethodByName("findOne");
+    Package.disableRemoteMethodByName('findOne');
 
     Package.disableRemoteMethodByName('deleteById');
 

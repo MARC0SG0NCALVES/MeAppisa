@@ -1,6 +1,5 @@
 'use strict';
 
-
 var helpers = require('../helpers');
 var methods = require('./package/package.methods');
 var settings = require('./package/package.settings');
