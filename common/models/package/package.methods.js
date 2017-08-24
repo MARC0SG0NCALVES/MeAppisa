@@ -32,6 +32,7 @@ module.exports.enableMethods = (Package) => {
                         name: object.name,
                         description: object.description,
                         version: object.version,
+                        versions: object.versions,
                         page: object.homepage,
                         author: object.author,
                         lastVersion: object.versions[object.versions.length - 1]

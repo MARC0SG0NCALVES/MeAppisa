@@ -1,6 +1,6 @@
 {
   "name": "MeAppisaApi",
-  "version": "1.0.0",
+  "version": "1.8.0",
   "main": "server/server.js",
   "engines": {
     "node": ">=4"
